@@ -1,10 +1,27 @@
-sensor:
-  interval: 5
-  drone_ip: "127.0.0.1"
-  drone_port: 9000
+server:
+  ip: "127.0.0.1"
+  port: 9100
 
-drone:
-  server_ip: "127.0.0.1"
-  server_port: 9100
-  listen_port: 9000
-  battery_threshold: 20 
+drones:
+  - id: "drone1"
+    listen_port: 9000
+    battery_threshold: 5
+    gui: true
+  - id: "drone2"
+    listen_port: 9001
+    battery_threshold: 5
+    gui: true
+
+sensors:
+  - id: "sensor1"
+    drone_ip: "127.0.0.1"
+    drone_port: 9000
+  - id: "sensor2"
+    drone_ip: "127.0.0.1"
+    drone_port: 9000
+  - id: "sensor3"
+    drone_ip: "127.0.0.1"
+    drone_port: 9001
+  - id: "sensor4"
+    drone_ip: "127.0.0.1"
+    drone_port: 9001 

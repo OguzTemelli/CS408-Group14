@@ -19,10 +19,13 @@ args = parser.parse_args()
 # Load configuration
 with open(args.config, 'r') as f:
     cfg = yaml.safe_load(f)
-sensor_cfg = cfg['sensor']
+
+# Find this sensor's config from the sensors list
+sensor_id = args.id
+sensor_cfg = next(s for s in cfg['sensors'] if s['id'] == sensor_id)
 
 # Apply settings, allowing overrides
-interval = args.interval or sensor_cfg['interval']
+interval = args.interval or 5  # veya config'e eklenmişse sensor_cfg['interval']
 drone_ip = args.drone_ip or sensor_cfg['drone_ip']
 drone_port = args.drone_port or sensor_cfg['drone_port']
 sensor_id = args.id or sensor_cfg.get('id', 'sensor1')
